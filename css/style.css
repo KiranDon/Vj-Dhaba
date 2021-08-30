@@ -19,14 +19,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 body{
     font-size: 16px;
-    background-color: var(--main_color);
+    /* background-color: var(--main_color); */
 }
 .header{
-    background-color: var(--dark_light);
+    width: 100%;
+    background-color: transparent;
     padding: 0 5%;
+    position: fixed;
+    z-index: 3;
 }
 .header .row{
     display: flex;
@@ -41,10 +45,21 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    /* position: relative; */
     border: none;
     outline: none;
+    transition: all 0.5s ease;
 }
+/* .navbar.active .line{
+    background-color: transparent;
+
+}
+.navbar.active .line::before{
+    transform: rotate(45deg);
+}
+.navbar.active .line::after{
+    transform: rotate(-45deg);
+} */
 .line{
     display: block;
     width: 35px;
@@ -76,7 +91,12 @@ body{
     right: 0;
     transition: transform 0.5s ease;
     transform: translateX(250px);
+    z-index: 2;
+    box-shadow: var(--shadow);
 }
+/* .navbar_toggler{
+    transition: transform 0.5s ease;
+} */
 .nav{
     list-style: none; 
 }
@@ -96,4 +116,148 @@ body{
 }
 .navbar.active{
     transform: translateX(0);
+}
+.navbar_toggler.active{
+    position: absolute;
+    right: 0;
+    /* transition: transform 0.5s ease; */
+    transform: translateX(-210px);
+}
+.navbar_toggler.active .line{
+    background-color: transparent;
+}
+.navbar_toggler.active .line::before{
+    transform: rotate(45deg);
+}
+.navbar_toggler.active .line::after{
+    transform: rotate(-45deg);
+}
+.header.active{
+    background-color: var(--dark_light);
+}
+
+/* hero */
+.hero{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-image: url("../images/home.jpg");
+    
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero .overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.hero .heroTexts{
+    position: absolute;
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.heroTexts h1{
+    color: var(--white);
+    font-family: var(--cursive_font);
+    font-size: 50px;
+    line-height: 1.5;
+}
+.heroTexts p{
+    color: var(--white_light);
+    font-family: var(--poppins_font);
+    font-size: 16px;
+    line-height: 1.3;
+}
+.heroButton{
+    padding: 10px 20px;
+    background-color: transparent;
+    border-radius: 30px;
+    border: 2px solid var(--main_color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 20px;
+}
+.heroButton a{
+    text-decoration: none;
+    color: var(--main_color);
+    font-size: 18px;
+    text-transform: capitalize;
+}
+.heroButton:hover{
+    background-color: var(--main_color);
+    border-color: var(--white);
+}
+.heroButton:hover a{
+    color: var(--white);
+}
+
+
+/* about */
+.about{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--dark);
+    padding: 100px;
+}
+.about .h2{
+    font-family: var(--cursive_font);
+    color: var(--main_color);
+    text-align: center;
+}
+.about h1{
+    font-family: var(--poppins_font);
+    color: var(--white);
+    text-align: center;
+}
+.about .row{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.about .row .left, .about .row .right{
+    width: 50%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.about .row .left h2{
+    color: white;
+    font-family: var(--poppins_font);
+    line-height: 2;
+    float: left
+}
+.about .row .left p{
+    color: var(--white_light);
+    font-family: var(--poppins_font);
+    line-height: 1.5;
+
+}
+.about .row .left .heroButton{
+    width: 190px;
+}
+.about .row .right img{
+    width: 90%;
+    height: 100%;
+    border-radius: 20px;
+}
+.about .row .right{
+    position: relative;
+}
+.about .row .right .textOnImage{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-family: var(--cursive_font);
 }
