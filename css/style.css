@@ -1,0 +1,99 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap');
+/* font-family: 'Poppins', sans-serif; */
+/* font-family: 'Dancing Script', cursive; */
+
+/* Root variables */
+:root{
+    --main_color: #eaa023;
+    --dark: #0c1023;
+    --dark_light: #191f3a;
+    --white: #ffffff;
+    --white_light: #c8c8c8;
+    --shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    --poppins_font: 'Poppins', sans-serif;
+    --cursive_font: 'Dancing Script', cursive;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 16px;
+    background-color: var(--main_color);
+}
+.header{
+    background-color: var(--dark_light);
+    padding: 0 5%;
+}
+.header .row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .row button{
+    width: 35px;
+    height: 30px;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: none;
+    outline: none;
+}
+.line{
+    display: block;
+    width: 35px;
+    height: 3px;
+    background-color: var(--white);
+    cursor: pointer;
+    position: relative;
+}
+.line::before, .line::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+}
+.line::before{
+    transform: translateY(-8px);
+}
+.line::after{
+    transform: translateY(8px);
+}
+.navbar{
+    background-color: var(--dark_light);
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    transition: transform 0.5s ease;
+    transform: translateX(250px);
+}
+.nav{
+    list-style: none; 
+}
+.nav .nav_item{
+    margin: 20px 35px;
+}
+.nav .nav_item a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--white_light);
+    font-family: var(--poppins_font);
+    font-size: 25px;
+    transition: color 0.3s ease;
+}
+.nav .nav_item a:hover{
+    color: var(--main_color);
+}
+.navbar.active{
+    transform: translateX(0);
+}
