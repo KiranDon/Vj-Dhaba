@@ -20,6 +20,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    /* overflow-y: hidden; */
 }
 body{
     font-size: 16px;
@@ -142,18 +143,29 @@ body{
     height: 100vh;
     position: relative;
     background-image: url("../images/home.jpg");
-    
     background-position: center;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* animation: bganimation 10s linear 0s infinite; */
 }
 .overlay{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
 }
+/* @keyframes bganimation{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+} */
 .hero .heroTexts{
     position: absolute;
     width: 50%;
@@ -199,6 +211,87 @@ body{
     color: var(--white);
 }
 
+/* menu */
+.menu{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--dark);
+    padding: 100px 100px;
+}
+.menuButtons{
+    width: 70%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.menuButtons .menuButton{
+    background-color: transparent;
+    color: white;
+    font-family: var(--poppins_font);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+}
+.menuButtons .menuButton.active{
+    color: var(--main_color);
+}
+.menuItemsMain{
+    width: 100%;
+    /* border: 1px solid rgb(228, 14, 14); */
+}
+.menuItemsMain .menuItems{
+    width: 100%;
+    display: none;
+    flex-wrap: wrap;
+    /* border: 1px solid rgb(49, 202, 49); */
+}
+.menuItemsMain .menuItems.active{
+    display: flex;
+}
+.menuItemsMain .menuItems .item{
+    color: white;
+    /* border: 1px solid white; */
+    width: 45%;
+    margin-left: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    font-family: var(--poppins_font);
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    border-bottom: 1px solid rgba(90, 87, 87, 0.3);
+    /* border-radius: 10px; */
+}
+
+.item .left{
+    display: flex;
+    align-items: center;
+}
+.item .title{
+    margin-left: 20px;
+}
+.item .left img{
+    transform: scale(0.8);
+    border-radius: 10px;
+}
+.item .price{
+    color: var(--main_color);
+}
+.item:hover{
+    background-color: var(--dark_light);
+}
+.item:hover .title{
+    color: var(--main_color);
+}
+.item:hover .price{
+    color: var(--white);
+}
+
 
 /* about */
 .about{
@@ -222,6 +315,7 @@ body{
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-left: 40px;
 }
 .about .row .left, .about .row .right{
     width: 50%;
@@ -292,7 +386,7 @@ body{
     flex-direction: column;
     justify-content: space-between;
     border-radius: 10px;
-    cursor: default;
+    cursor: pointer;
     box-shadow: 5px 5px 15px rgba(5, 5, 5, 0.5);
 }
 .cards .card p{
@@ -303,13 +397,17 @@ body{
     justify-content: space-between;
 }
 .cards .card .upper .right{
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 .cards .card .upper .right img{
     border-radius: 50%;
-    width: 100%;
-    height: 100%;
+    width: 95%;
+    height: 95%;
+    transition: all 0.1s ease;
+}
+.cards .card:hover img{
+    border: 4px solid var(--main_color);
 }
 .bottom p{
     font-size: 20px;
@@ -355,6 +453,11 @@ body{
     text-align: center;
     font-family: var(--poppins_font);
     background-color: var(--dark_light);
+    transition: all 0.3s ease;
+}
+.team .chefs .chef:hover .detailsBox{
+    background-color: var(--main_color);
+    bottom: 10%;
 }
 
 /* footer */
@@ -382,3 +485,107 @@ body{
     text-decoration: none;
     color: var(--white_light);
 }
+
+
+/* responsiveness */
+@media screen and (max-width:1100px) {
+    .about {
+        padding: 100px 40px;
+    }
+    .menu{
+        padding: 80px 0px;
+    }
+    .menuButtons{
+        width: 100%;
+    }
+    
+}
+@media screen and (max-width:880px) {
+    .hero .heroTexts{
+        width: 80%;
+    }
+    .about{
+        padding: 100px 50px;
+    }
+    .about .row{
+        margin-left: 20px;
+    }
+}
+@media screen and (max-width:800px) {
+    .about{
+        padding: 100px 50px;
+    }
+    .about .row{
+        flex-direction: column;
+        margin-left: 20px;
+    }
+    .about .row .left, .about .row .right{
+        width: 100%;
+    }
+    .about .row .left{
+        padding-right: 20px;
+    }
+    .heroButton{
+        margin: 20px auto 20px;
+    }
+    .about .row .right{
+        display: none;
+    }
+    .menu{
+        padding: 10px 100px
+    }
+    .menuItemsMain .menuItems{
+        flex-direction: column;
+    }
+    .menuItemsMain .menuItems .item{
+        width: 100%;
+        margin-left: 30px;
+        padding: 0 10px;
+        justify-content: space-between;
+    }
+}
+@media screen and (max-width:560px) {
+    .hero .heroTexts{
+        width: 100%;
+    }
+    .heroTexts h1{
+        font-size: 40px;
+    }
+    .heroTexts p{
+        padding: 0 10px;
+    }
+    .about{
+        padding: 100px 10px;
+    }
+    .about .row{
+        margin-left: 0px;
+    }
+    .about .row .left{
+        padding-right: 10px;
+    }
+    .menu{
+        padding: 100px 10px;
+    }
+    .menuItemsMain .menuItems .item{
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width:1020px) {
+    .menu{
+        padding: 100px 0px;
+    }
+    
+}
+/* @media screen and (max-width:1020px) {
+    body{
+        display: none;
+    }
+    
+} */
+/* @media screen and (max-width:1020px) {
+    body{
+        display: none;
+    }
+    
+} */

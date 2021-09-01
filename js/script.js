@@ -22,25 +22,23 @@ window.addEventListener('scroll', function(){
     }
 });
 
-// const header = document.querySelector('header');
-// const navHeight = header.getBoundingClientRect().height;
+// menu Selection
 
-// function stickyNav(entries){
-//     const [entry] = entries;
-//     console.log(entry);
-//     if(!entry.isIntersecting)
-//     {
-//         document.querySelector('nav').classList.add('sticky');
-//     }
-//     else
-//     {
-//         document.querySelector('nav').classList.remove('sticky');
-//     }
-    
-// }
+const menuButtons = document.querySelector('.menuButtons');
+const menuItemsMain = document.querySelector('.menuItemsMain');
 
-// const headerObserver = new IntersectionObserver(stickyNav, {
-//     root: null,
-//     threshold: 0
-// });
-// headerObserver.observe(header);
+menuButtons.addEventListener('click', function(e){
+    if(e.target.classList.contains('menuButton') && !e.target.classList.contains('active')){
+        let toDisplay = e.target.getAttribute('data-target');
+        console.log(toDisplay)
+
+        //to add/remove active class to buttons
+        menuButtons.querySelector('.active').classList.remove('active');
+        e.target.classList.add('active');
+
+        //to add/remove active class to menuItems
+        menuItemsMain.querySelector('.menuItems.active').classList.remove('active');
+        menuItemsMain.querySelector(toDisplay).classList.add('active');
+        
+    }
+})
