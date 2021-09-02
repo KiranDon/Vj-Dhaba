@@ -217,7 +217,7 @@ body{
 /* menu */
 .menu{
     width: 100%;
-    height: 100vh;
+    height: auto;
     background-color: var(--dark);
     padding: 100px 100px;
 }
@@ -379,7 +379,7 @@ body{
 }
 .cards .card{
     /* border: 1px solid white; */
-    height: 250px;
+    height: auto;
     width: 30%;
     padding: 30px;
     color: white;
@@ -412,8 +412,12 @@ body{
 .cards .card:hover img{
     border: 4px solid var(--main_color);
 }
+.cards .card .middle{
+    margin: 10px 0;
+}
 .bottom p{
     font-size: 20px;
+    margin-top: 15px;
 }
 
 /* team */
@@ -479,7 +483,7 @@ body{
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    padding: 100px 0;
+    padding: 100px 0 50px 0;
 }
 .footer .footerDetails p{
     color: var(--white_light);
@@ -514,10 +518,10 @@ body{
         margin-left: 20px;
     }
     .header{
-        padding: 0 0 5% 0;
+        padding: 0 5% 0 0;
     }
     .logo img{
-        transform: scale(0.8);
+        transform: scale(0.7);
     }
 }
 @media screen and (max-width:800px) {
@@ -548,9 +552,41 @@ body{
     }
     .menuItemsMain .menuItems .item{
         width: 100%;
-        margin-left: 30px;
+        margin-left: 0px;
         padding: 0 10px;
         justify-content: space-between;
+    }
+    .testimonials{
+        height: auto;
+    }
+    .testimonials .cards{
+        flex-direction: column;
+        padding: 30px;
+    }
+    .cards .card{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .team{
+        height: auto;
+        padding-bottom: 50px;
+    }
+    .chefs{
+        flex-direction: column;
+        align-items: center;
+    }
+    .team .chefs .chef{
+        width: 50%;
+        margin: 30px 0;
+    }
+    .footer{
+        height: auto;
+    }
+    .footer .footerDetails{
+        flex-direction: column;
+    }
+    .footer .footerDetails .detail{
+        margin: 20px 0;
     }
 }
 @media screen and (max-width:560px) {
@@ -577,6 +613,10 @@ body{
     }
     .menuItemsMain .menuItems .item{
         margin-left: 0px;
+    }
+    .team .chefs .chef{
+        width: 80%;
+        margin: 30px 0;
     }
 }
 
