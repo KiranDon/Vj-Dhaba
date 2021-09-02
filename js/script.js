@@ -1,3 +1,10 @@
+// AOS
+window.addEventListener('load', function(){
+    AOS.init();
+})
+
+
+
 // navbar_toggler
 let toggler = document.querySelector('.navbar_toggler');
 toggler.addEventListener('click', toggleNavbar);
@@ -39,6 +46,6 @@ menuButtons.addEventListener('click', function(e){
         //to add/remove active class to menuItems
         menuItemsMain.querySelector('.menuItems.active').classList.remove('active');
         menuItemsMain.querySelector(toDisplay).classList.add('active');
-        
+        AOS.init();
     }
 })
