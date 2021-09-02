@@ -51,6 +51,9 @@ body{
     outline: none;
     transition: all 0.5s ease;
 }
+/* .logo img{
+        
+}    */
 /* .navbar.active .line{
     background-color: transparent;
 
@@ -509,6 +512,12 @@ body{
     }
     .about .row{
         margin-left: 20px;
+    }
+    .header{
+        padding: 0 0 5% 0;
+    }
+    .logo img{
+        transform: scale(0.8);
     }
 }
 @media screen and (max-width:800px) {
