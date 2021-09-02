@@ -303,6 +303,7 @@ body{
     height: 100vh;
     background-color: var(--dark);
     padding: 100px 100px;
+    overflow: hidden;
 }
 .centerText .h2{
     font-family: var(--cursive_font);
