@@ -603,7 +603,6 @@ body{
     }
     .about{
         padding: 100px 10px;
-        height: 150vh;
     }
     .about .row{
         margin-left: 0px;
@@ -638,12 +637,12 @@ body{
     }
     
 }
-/* @media screen and (max-width:1020px) {
-    body{
-        display: none;
+@media screen and (max-height:650px) {
+    .about{
+        height: 160vh;
     }
     
-} */
+}
 /* @media screen and (max-width:1020px) {
     body{
         display: none;
